@@ -20,7 +20,7 @@
       <item>
        <widget class="QListView" name="listView">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -59,8 +59,11 @@
             </item>
             <item>
              <widget class="QLabel" name="soundLabel">
+              <property name="toolTip">
+               <string>number of files.max 501</string>
+              </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -87,8 +90,11 @@
             </item>
             <item>
              <widget class="QLabel" name="picLabel">
+              <property name="toolTip">
+               <string>number of files.max 501</string>
+              </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -118,8 +124,11 @@
             </item>
             <item>
              <widget class="QLabel" name="videoLabel">
+              <property name="toolTip">
+               <string>number of files.max 501</string>
+              </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -146,8 +155,11 @@
             </item>
             <item>
              <widget class="QLabel" name="docLabel">
+              <property name="toolTip">
+               <string>number of files.max 501</string>
+              </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -158,7 +170,7 @@
         <item>
          <widget class="QPushButton" name="openButton">
           <property name="text">
-           <string>open</string>
+           <string>open another directory</string>
           </property>
          </widget>
         </item>
@@ -173,7 +185,10 @@
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>Pictures View</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
         </property>
        </widget>
       </item>

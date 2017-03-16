@@ -17,7 +17,7 @@ public:
     ~Dialog();
 
 private slots:
-    void on_opeDirectory_clicked();
+    void on_openDirectory_clicked();
 
 private:
     Ui::Dialog *ui;

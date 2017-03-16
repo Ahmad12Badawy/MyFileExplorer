@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtMultimediaWidgets/QVideoWidget>
-#include <QtMultimedia/QMediaPlayer>
 
 namespace Ui {
 class MainWindow;
@@ -33,13 +31,9 @@ private slots:
 
     void on_docButton_clicked();
 
-    void on_listView_clicked(const QModelIndex &index);
-
 private:
     Ui::MainWindow *ui;
     QString dir;
-    //QMediaPlayer *player;
-    //QVideoWidget *videoWidget;
 
     enum Mode{sound=1, picture=2, video=3, document=4};
     Mode mode;

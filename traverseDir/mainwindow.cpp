@@ -17,8 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //player = new QMediaPlayer;
-
 
 }
 
@@ -39,13 +37,10 @@ void MainWindow::on_openButton_clicked()
 
 }
 
-void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
-{
-
-}
 
 void MainWindow::on_soundButton_clicked()
 {
+
     mode = sound;
     QStringListModel  *model = new QStringListModel;
     QStringList sounds;sounds << "*.mp3"<<"*.wav";
@@ -64,9 +59,10 @@ void MainWindow::on_soundButton_clicked()
 
 void MainWindow::on_picButton_clicked()
 {
+
     mode = picture;
     QStringListModel  *model = new QStringListModel;
-    QStringList pics;pics << "*.jpg"<<"*.ejpg";
+    QStringList pics;pics << "*.jpg"<<"*.png";
     QDirIterator it1(dir, pics, QDir::NoDotAndDotDot | QDir::Files, QDirIterator::Subdirectories);
     int count=0;
     QStringList list;
@@ -82,9 +78,10 @@ void MainWindow::on_picButton_clicked()
 
 void MainWindow::on_videoButton_clicked()
 {
+
     mode = video;
     QStringListModel  *model = new QStringListModel;
-    QStringList videos;videos << "*.mp4" << "*.wmv";
+    QStringList videos;videos << "*.mp4" << "*.wmv"<<"*.avi" <<"*.mkv";
     QDirIterator it1(dir, videos, QDir::NoDotAndDotDot | QDir::Files, QDirIterator::Subdirectories);
     int count=0;
     QStringList list;
@@ -100,6 +97,7 @@ void MainWindow::on_videoButton_clicked()
 
 void MainWindow::on_docButton_clicked()
 {
+
     mode = document;
     QStringListModel  *model = new QStringListModel;
     QStringList docs;docs << "*.pdf"<<"*.txt"<<"*.rtf";
@@ -107,7 +105,7 @@ void MainWindow::on_docButton_clicked()
     int count=0;
     QStringList list;
     while (it1.hasNext()){
-        count++;
+        count++;ui->docLabel->setNum(count);
         if (count> 500) break;
         list<< it1.next();
     }
@@ -116,12 +114,10 @@ void MainWindow::on_docButton_clicked()
     ui->listView->setModel(model);
 }
 
-void MainWindow::on_listView_clicked(const QModelIndex &index)
+void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
 {
     switch (mode) {
-        /*case sound:
 
-            break;*/
         case picture:
         {
             QPixmap pix(index.data().toString());
@@ -136,26 +132,18 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
             /*player->stop();
             QVideoWidget *videoWidget = new QVideoWidget(this);
             ui->horizontalLayout_3-> addWidget(videoWidget);
-
-                player->setMedia(QUrl::fromLocalFile(index.data().toString()));
-                player->setVolume(50);
+            player->setMedia(QUrl::fromLocalFile(index.data().toString()));
+            player->setVolume(50);
             player->setVideoOutput(videoWidget);
             videoWidget->show();
             player->play();*/
 
-
-                QDesktopServices::openUrl(QUrl::fromLocalFile(index.data().toString()));
-
+              QDesktopServices::openUrl(QUrl::fromLocalFile(index.data().toString()));
             break;
         }
         case document:
         {
-            if(index.data().toString() == "*.pdf"){
-                qDebug()<< index.data().toString();
-                QDesktopServices::openUrl(QUrl::fromLocalFile(index.data().toString()));
-            }else{
-                qDebug()<< "else" <<index.data().toString();
-                QDesktopServices::openUrl(QUrl::fromLocalFile(index.data().toString()));
+               QDesktopServices::openUrl(QUrl::fromLocalFile(index.data().toString()));
                 /*QFile file(index.data().toString());
 
                 if (!file.open(QFile::ReadOnly | QFile::Text)){
@@ -166,7 +154,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
                 QString text = in.readAll();
                 ui->view->setText(text);
                 file.close();*/
-            }
+
             break;
         }
         default:

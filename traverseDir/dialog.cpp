@@ -14,13 +14,14 @@ Dialog::~Dialog()
     delete ui;
 }
 
-void Dialog::on_opeDirectory_clicked()
+void Dialog::on_openDirectory_clicked()
 {
     QFileDialog dialog(this);
-      dialog.setFileMode(QFileDialog::DirectoryOnly);
+    dialog.setFileMode(QFileDialog::DirectoryOnly);
 
     mainWin =new MainWindow(this);
     mainWin->set_dir(QFileDialog::getExistingDirectory(this)) ;
+    mainWin->setWindowTitle("MyFileExplorer");
     mainWin->show();
     this->hide();
 }
