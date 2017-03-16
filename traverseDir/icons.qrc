@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sound64.png</file>
+        <file>video64.png</file>
+        <file>docs64.png</file>
+        <file>pic64.png</file>
+    </qresource>
+</RCC>
